@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gouga's Love Quest 💗</title>
+
+  <!-- PARTIE 2 : CSS -->
+  <style>
+  
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 12px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+  color: #71334f;
+  background: linear-gradient(135deg, #fff0f6, #ffd6e7, #fce7f3);
+  min-height: 100vh;
+}
+
+main {
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  color: #e74688;
+}
+
+h2 {
+  color: #d63384;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 22px;
+  margin: 18px 0;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #e879a52b;
+  animation: appear 0.6s ease;
+}
+
+button {
+  background: #ec4899;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin: 8px 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #db2777;
+  transform: scale(1.03);
+}
+
+#gameArea {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border: 2px dashed #f5a5c7;
+  border-radius: 20px;
+  background: #fff7fb;
+}
+
+.heart {
+  position: absolute;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 34px;
+  animation: heartbeat 0.7s infinite alternate;
+}
+
+.heart:hover {
+  background: transparent;
+}
+
+.diploma {
+  background: linear-gradient(145deg, #fffdf5, #ffe8f2);
+  border: 5px double #e9a0bd;
+  border-radius: 18px;
+  padding: 22px 12px;
+}
+
+.couple-photo {
+  width: 100%;
+  max-width: 350px;
+  border: 5px solid #ffc2dc;
+  border-radius: 22px;
+  box-shadow: 0 8px 25px #e879a544;
+}
+
+.love-letter {
+  background: #fff7fb;
+  border: 2px solid #ffc2dc;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+  white-space: pre-line;
+  line-height: 1.9;
+}
+
+.floating {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes heartbeat {
+  to { transform: scale(1.2); }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Gouga's Love Quest 💗</h1>
+    <p>Un petit jeu créé spécialement pour toi, Gouga 🥹</p>
+
+    <section id="welcome" class="card">
+      <h2>Bienvenue, ma Gouga 🎀</h2>
+      <p>Attrape 10 cœurs pour découvrir tes 3 surprises !</p>
+      <button onclick="startGame()">Commencer 💗</button>
+    </section>
+
+    <section id="game" class="card" hidden>
+      <h2>Attrape les cœurs !</h2>
+      <p id="score">Cœurs : 0 / 10</p>
+      <p id="timer">Temps : 20 secondes</p>
+      <div id="gameArea"></div>
+      <p id="gameMessage">Tu peux le faire, Gouga ! 🌸</p>
+    </section>
+
+    <section id="result" class="card" hidden>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+      <button id="giftBtn" onclick="showGift()" hidden>
+        Découvrir mes surprises 💌
+      </button>
+      <button onclick="startGame()">Rejouer 🎮</button>
+    </section>
+
+    <section id="letter" class="card" hidden>
+      <h2>🎓 Surprise 1 : Diplôme spécial</h2>
+      <div class="diploma">
+        <p>Félicitations à</p>
+        <h1>Gouga 💗</h1>
+        <h2>Future Bachelière</h2>
+        <p>Une fille courageuse qui mérite de réaliser ses rêves ✨</p>
+        <p>Signé : Oussy ❤️</p>
+      </div>
+
+      <hr>
+
+      <h2>📸 Surprise 2 : Our Little World</h2>
+      <p>Un souvenir précieux pour une personne précieuse.</p>
+
+      <!-- La photo sera ajoutée dans le repository -->
+      <img src="gouga.jpg" alt="Notre souvenir"
+           class="couple-photo">
+
+      <hr>
+
+      <h2>💌 Surprise 3 : A Promise from Oussy</h2>
+      <div class="love-letter">
+        sa8rounty Gouga ❤️
+
+        bhy 7assit ak l page ta3 lmarrali fett
+        ma3jbtkch barcha 🥹
+        7abbit na3ml lmarra 7eja mo5talfa barcha 🥹💙 
+        na3ref stress w lkol w na3ref 8asra amme 7abbit 
+        nraja3lek 4a7ka w lfar7a 7atta b 7eja bsita🥹💞
+        w bech ta3rfi zeda elli ena layem l 7akitch fihom 
+        m3k rany mansitkch w raw imp temchi mn beli 7atta 
+        d9i9a 🥺
+        nchllh te3jbek surprise 🪄
+
+        —  Oussy ❤️
+      </div>
+
+      <button onclick="celebrate()">Un million de cœurs 💕</button>
+      <p id="finalMessage"></p>
+    </section>
+  </main>
+
+  <!-- PARTIE 3 : JAVASCRIPT -->
+  <script>
+  
+const TARGET = 10;
+const GAME_SECONDS = 20;
+
+let score = 0;
+let timeLeft = GAME_SECONDS;
+let timerId;
+let playing = false;
+
+const $ = id => document.getElementById(id);
+
+function startGame() {
+  clearInterval(timerId);
+
+  score = 0;
+  timeLeft = GAME_SECONDS;
+  playing = true;
+
+  $("welcome").hidden = true;
+  $("result").hidden = true;
+  $("letter").hidden = true;
+  $("game").hidden = false;
+
+  $("gameArea").replaceChildren();
+  updateScore();
+  updateTimer();
+  spawnHeart();
+
+  timerId = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+
+    if (timeLeft <= 0 || score >= TARGET) {
+      endGame();
+    }
+  }, 1000);
+}
+
+function updateScore() {
+  $("score").textContent = `Cœurs : ${score} / ${TARGET}`;
+}
+
+function updateTimer() {
+  $("timer").textContent = `Temps : ${timeLeft} secondes`;
+}
+
+function spawnHeart() {
+  if (!playing || score >= TARGET) return;
+
+  const area = $("gameArea");
+  const heart = document.createElement("button");
+
+  heart.className = "heart";
+  heart.textContent = ["💗", "💖", "💕", "💘", "💝"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.setAttribute("aria-label", "Attraper un cœur");
+
+  heart.style.left =
+    Math.random() * Math.max(0, area.clientWidth - 45) + "px";
+
+  heart.style.top =
+    Math.random() * Math.max(0, area.clientHeight - 45) + "px";
+
+  heart.onclick = () => {
+    if (!playing) return;
+
+    score++;
+    updateScore();
+    heart.remove();
+
+    $("gameMessage").textContent = [
+      "Un cœur pour ton sourire ! 💕",
+      "Crois en toi, Gouga ! 🌸",
+      "Ton avenir sera magnifique ! ✨",
+      "Oussy croit en toi ! ❤️"
+    ][Math.floor(Math.random() * 4)];
+
+    if (score >= TARGET) {
+      endGame();
+    } else {
+      spawnHeart();
+    }
+  };
+
+  area.appendChild(heart);
+}
+
+function endGame() {
+  if (!playing) return;
+
+  playing = false;
+  clearInterval(timerId);
+
+  $("gameArea").replaceChildren();
+  $("game").hidden = true;
+  $("result").hidden = false;
+
+  if (score >= TARGET) {
+    $("resultTitle").textContent = "rbe7tyyyy Gouga ! 🏆💗";
+    $("resultText").textContent =
+      "rbe7ty sa8rounty , ljawa2iz ta3k testana fik 💞.";
+    $("giftBtn").hidden = false;
+  } else {
+    $("resultTitle").textContent = "chway a5er , hana wsalna hyhyhyhyh ! 🌷";
+    $("resultText").textContent =
+      `ouwah chadity ken ${score} cœur(s). 3awdi bech terb7y , mat2aysich !`;
+    $("giftBtn").hidden = true;
+  }
+}
+
+function showGift() {
+  $("result").hidden = true;
+  $("letter").hidden = false;
+  $("letter").scrollIntoView({ behavior: "smooth" });
+  celebrate();
+}
+
+function celebrate() {
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement("span");
+
+    heart.className = "floating";
+    heart.textContent = ["💗", "💕", "✨", "🌸", "💖"][
+      Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 20 + Math.random() * 25 + "px";
+    heart.style.animationDuration = 3 + Math.random() * 4 + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7500);
+  }
+
+  $("finalMessage").textContent =
+    "barcha 9loub lik, Gouga ! 💗✨";
+}
+
+  </script>
+</body>
+</html>
